@@ -1,15 +1,10 @@
-import {ListItem, ListItemText, InputBase, Checkbox} from '@material-ui/core'
+import {ListItem, ListItemText, InputBase, Checkbox, IconButton} from '@material-ui/core'
+import DeleteOutlined from '@material-ui/icons/DeleteOutlined'
 
-function Todo({item}) {
-    /*
+function Todo({item, delTodo}) {
+    const onClick = () => delTodo(item.todoId)
+
     return (
-        <div> 
-            <input type='checkbox' id={item.todoId} checked={item.done}/>
-            <label htmlFor={item.todoId}>{item.title}</label>
-        </div>
-    )
-    */
-   return (
        <ListItem>
            <Checkbox checked={item.done}/>
             <ListItemText>
@@ -19,18 +14,11 @@ function Todo({item}) {
                     value={item.title}                   
                     fullWidth={true}/>
             </ListItemText>
+            <IconButton onClick={onClick}>
+                <DeleteOutlined/>
+            </IconButton>
        </ListItem>
    )
 }
 
 export default Todo
-
-/*
-{
-    item : {
-        todoId: 1,
-        title: '자바 공부',
-        done: true
-    }
-}
-*/
